@@ -18,9 +18,14 @@ public class Main {
     public static ArrayList<Item> createCart (String[] args, Item[] store) {
         ArrayList<Item> cart = new ArrayList<Item>();
 
-        for (int i = 0; i < Integer.parseInt(args[0]); i++) {
-            cart.add(store[Integer.parseInt(args[i]) + 1]);
+        try {
+            for (int i = 0; i < Integer.parseInt(args[0]); i++) {
+                cart.add(store[Integer.parseInt(args[i]) + 1]);
+            }
+        } catch (IndexOutOfBoundsException e) {
+            System.out.println("Index out of bounds");
         }
+
 
         return cart;
     }
@@ -40,6 +45,13 @@ public class Main {
         double total = subTotal + salesTax;
         System.out.println("\nTotal --- " + total);
 
+    }
+
+    public static void emptyCartReverseOrder (ArrayList<Item> cart) {
+        System.out.println("Removing all items from the cart using in \"Last In First Out\" order...");
+        for (int i = cart.size() - 1; i >= 0; i--) {
+            System.out.println("Removing " + cart.get(i));
+        }
     }
 
     public static void main(String[] args) {
