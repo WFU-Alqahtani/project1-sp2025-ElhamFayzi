@@ -7,11 +7,11 @@ import java.util.ArrayList;
 public class Main {
     public static Item[] setupStore() {
         Item[] store = new Item[5];
-        store[0] = new Item("item1", 1);
-        store[1] = new Item("item2", 2);
-        store[2] = new Item("item3", 3);
-        store[3] = new Item("item4", 4);
-        store[4] = new Item("item5", 5);
+        store[0] = new Item("Mechanical Keyboard", 80);
+        store[1] = new Item("Wireless Mouse", 25);
+        store[2] = new Item("External 500GB SSD", 50);
+        store[3] = new Item("Bluetooth Speaker", 40);
+        store[4] = new Item("Cooling Pad", 15);
         return store;
     }
 
@@ -19,11 +19,14 @@ public class Main {
         ArrayList<Item> cart = new ArrayList<Item>();
 
         try {
-            for (int i = 0; i < Integer.parseInt(args[0]); i++) {
-                cart.add(store[Integer.parseInt(args[i]) + 1]);
+            int n = Integer.parseInt(args[0]);
+            for (int i = 1; i < n; i++) {
+                cart.add(store[Integer.parseInt(args[i])]);
             }
         } catch (IndexOutOfBoundsException e) {
             System.out.println("Index out of bounds");
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid number");
         }
 
 
@@ -58,6 +61,5 @@ public class Main {
         Item[] listOfItems = setupStore();
         ArrayList<Item> cart = createCart(args, listOfItems);
         printReceiptInOrder(cart);
-        System.out.println("fix me!");
     }
 }
