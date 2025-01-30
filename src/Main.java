@@ -55,13 +55,14 @@ public class Main {
             subTotal += cart.get(i).getItemPrice();
         }
         System.out.println("____________________");
-        System.out.println("Subtotal --- " + subTotal);
+        System.out.printf("Subtotal --- %.2f", subTotal);
 
         double salesTax = subTotal * 0.05;
-        System.out.printf("SalesTax --- %.2f", salesTax);
+        System.out.printf("\nSalesTax --- %.2f", salesTax);
 
         double total = subTotal + salesTax;
-        System.out.println("\nTotal --- " + total);
+        System.out.printf("\nTotal    --- %.2f", total);
+        System.out.println();
 
     }
 
