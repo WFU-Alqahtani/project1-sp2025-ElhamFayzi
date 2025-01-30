@@ -1,7 +1,6 @@
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class Main {
@@ -15,25 +14,28 @@ public class Main {
         return store;
     }
 
-    public static ArrayList<Item> createCart (String[] args, Item[] store) {
+    public static ArrayList<Item> createCart(String[] args, Item[] store) {
         ArrayList<Item> cart = new ArrayList<Item>();
 
         try {
             int n = Integer.parseInt(args[0]);
-            for (int i = 1; i < n; i++) {
+            for (int i = 1; i <= n; i++) {
                 cart.add(store[Integer.parseInt(args[i])]);
             }
+
+            if (args.length - 1 > n) {
+                System.out.println("An extra index has been entered");
+            }
         } catch (IndexOutOfBoundsException e) {
-            System.out.println("Index out of bounds");
+            System.out.println("Index out of bounds");              // FIXME: Improve the message that would print out + Add the index that is not accessible
         } catch (NumberFormatException e) {
             System.out.println("Invalid number");
         }
 
-
         return cart;
     }
 
-    public static void printReceiptInOrder (ArrayList<Item> cart) {
+    public static void printReceiptInOrder(ArrayList<Item> cart) {
         double subTotal = 0;
         for (int i = 0; i < cart.size(); i++) {
             System.out.println(cart.get(i).getItemName() + " --- " + cart.get(i).getItemPrice());
@@ -50,7 +52,7 @@ public class Main {
 
     }
 
-    public static void emptyCartReverseOrder (ArrayList<Item> cart) {
+    public static void emptyCartReverseOrder(ArrayList<Item> cart) {
         System.out.println("Removing all items from the cart using in \"Last In First Out\" order...");
         for (int i = cart.size() - 1; i >= 0; i--) {
             System.out.println("Removing " + cart.get(i));
