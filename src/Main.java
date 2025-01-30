@@ -29,7 +29,7 @@ public class Main {
         } catch (IndexOutOfBoundsException e) {
             System.out.println("Index out of bounds");              // FIXME: Improve the message that would print out + Add the index that is not accessible
         } catch (NumberFormatException e) {
-            System.out.println("Invalid number");
+            System.out.println("Invalid number");                   // FIXME: Improve the message
         }
 
         return cart;
