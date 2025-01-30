@@ -16,20 +16,25 @@ public class Main {
 
     public static ArrayList<Item> createCart(String[] args, Item[] store) {
         ArrayList<Item> cart = new ArrayList<Item>();
-
+        int i = 0;
         try {
             int n = Integer.parseInt(args[0]);
-            for (int i = 1; i <= n; i++) {
+            for (i = 1; i <= n; i++) {
                 cart.add(store[Integer.parseInt(args[i])]);
             }
 
-            if (args.length - 1 > n) {
-                System.out.println("An extra index has been entered");
+            if (args.length - 1 < n) {
+                System.out.println("Not enough Input");
+            }
+            else if (args.length - 1 > n) {
+                for (i = n + 1; i < args.length; i++) {
+                    System.out.println("The entered index " + args[i] + " is extra.");
+                }
             }
         } catch (IndexOutOfBoundsException e) {
-            System.out.println("Index out of bounds");              // FIXME: Improve the message that would print out + Add the index that is not accessible
+            System.out.println("The store does not have an item of index " + args[i - 1]);              // FIXME: Improve the message that would print out + Add the index that is not accessible
         } catch (NumberFormatException e) {
-            System.out.println("Invalid number");                   // FIXME: Improve the message
+            System.out.println("\"" + args[i] + "\" is not a valid integer");                   // FIXME: Improve the message
         }
 
         return cart;
