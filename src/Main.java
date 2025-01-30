@@ -50,8 +50,9 @@ public class Main {
 
     public static void printReceiptInOrder(ArrayList<Item> cart) {
         double subTotal = 0;
-        System.out.println("\nItem                   Price");
+        System.out.println("\nReceipt");
         System.out.println("=================================");
+        System.out.println("Item                   Price");
 
         for (int i = 0; i < cart.size(); i++) {
             System.out.println(cart.get(i).getItemName() + " --- " + cart.get(i).getItemPrice());
