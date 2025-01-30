@@ -50,11 +50,15 @@ public class Main {
 
     public static void printReceiptInOrder(ArrayList<Item> cart) {
         double subTotal = 0;
+        System.out.println("\nItem                   Price");
+        System.out.println("=================================");
+
         for (int i = 0; i < cart.size(); i++) {
             System.out.println(cart.get(i).getItemName() + " --- " + cart.get(i).getItemPrice());
             subTotal += cart.get(i).getItemPrice();
         }
-        System.out.println("____________________");
+
+        System.out.println("=============================");
         System.out.printf("Subtotal --- %.2f", subTotal);
 
         double salesTax = subTotal * 0.05;
@@ -69,7 +73,7 @@ public class Main {
     public static void emptyCartReverseOrder(ArrayList<Item> cart) {
         System.out.println("Removing all items from the cart using in \"Last In First Out\" order...");
         for (int i = cart.size() - 1; i >= 0; i--) {
-            System.out.println("Removing " + cart.get(i));
+            System.out.println("Removing: " + cart.get(i).getItemName());
         }
     }
 
