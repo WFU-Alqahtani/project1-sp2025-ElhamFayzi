@@ -17,20 +17,21 @@ public class Main {
     public static ArrayList<Item> createCart(String[] args, Item[] store) {
         ArrayList<Item> cart = new ArrayList<Item>();
         int i = 0;
-        int n = (args.length == 0) ? 0 : Integer.parseInt(args[0]);
-
-        if (args.length - 1 != n) {
-            if (args.length - 1 < n) {
-                System.out.println("Not enough Input");
-            }
-            else {
-                for (i = n + 1; i < args.length; i++) {
-                    System.out.println("The entered index " + args[i] + " is extra.");
-                }
-            }
-        }
 
         try {
+            int n = (args.length == 0) ? 0 : Integer.parseInt(args[0]);
+
+            if (args.length - 1 != n) {
+                if (args.length - 1 < n) {
+                    System.out.println("Not enough Input");
+                }
+                else {
+                    for (i = n + 1; i < args.length; i++) {
+                        System.out.println("The entered index \"" + args[i] + "\" is extra");
+                    }
+                }
+            }
+
             for (i = 1; i < args.length; i++) {
                 cart.add(store[Integer.parseInt(args[i])]);
             }
