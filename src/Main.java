@@ -52,7 +52,7 @@ public class Main {
     public static void printReceiptInOrder(ArrayList<Item> cart) {
         double subTotal = 0;
         System.out.println("\nReceipt");
-        System.out.println("=================================");
+        System.out.println("===============================");
         System.out.println("Item                   Price");
 
         for (int i = 0; i < cart.size(); i++) {
@@ -60,7 +60,7 @@ public class Main {
             subTotal += cart.get(i).getItemPrice();
         }
 
-        System.out.println("=============================");
+        System.out.println("===============================");
         System.out.printf("Subtotal --- %.2f", subTotal);
 
         double salesTax = subTotal * 0.05;
