@@ -7,16 +7,15 @@ public class Main {
     public static Item[] setupStore() {
         Item[] store = new Item[5];
         store[0] = new Item("Mechanical Keyboard", 80);
-        store[1] = new Item("Wireless Mouse", 25);
-        store[2] = new Item("External 500GB SSD", 50);
-        store[3] = new Item("Bluetooth Speaker", 40);
-        store[4] = new Item("Cooling Pad", 15);
+        store[1] = new Item("Wireless Mouse     ", 25);
+        store[2] = new Item("External 500GB SSD ", 50);
+        store[3] = new Item("Bluetooth Speaker  ", 40);
+        store[4] = new Item("Cooling Pad        ", 15);
         return store;
     }
 
     public static ArrayList<Item> createCart(String[] args, Item[] store) {
         ArrayList<Item> cart = new ArrayList<Item>();
-        int i = 0;
         int n = 0;
         try {
             n = (args.length == 0) ? 0 : Integer.parseInt(args[0]);
@@ -24,18 +23,20 @@ public class Main {
             System.out.println("Invalid Input");
         }
 
+        // Check if the number of provided item indices matches the expected number––or args[0]
         if (args.length - 1 != n) {
             if (args.length - 1 < n) {
                 System.out.println("Not enough Input");
             }
             else {
-                for (i = n + 1; i < args.length; i++) {
+                for (int i = n + 1; i < args.length; i++) {
                     System.out.println("The entered index \"" + args[i] + "\" is extra");
                 }
             }
         }
 
-        for (i = 1; i < args.length; i++) {
+        // Process the item indices and add corresponding items to the cart
+        for (int i = 1; i < args.length; i++) {
             try {
                 cart.add(store[Integer.parseInt(args[i])]);
             } catch (IndexOutOfBoundsException e) {
